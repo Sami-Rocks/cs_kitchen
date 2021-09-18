@@ -1,23 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./navigation";
+import { Home, Fav, Notif, Cart } from "./screens";
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+const App = () =>{
+  return(
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
+        }}
+        initialRouteName={"Home"}
+      >
+        <Stack.Screen name="Home" component={Tabs} />
+        <Stack.Screen name="Fav" component={Fav} />
+        <Stack.Screen name="Notif" component={Notif} />
+        <Stack.Screen name="Cart" component={Cart} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
+
+export default App;
