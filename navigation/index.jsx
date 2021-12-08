@@ -18,7 +18,7 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress  }) => {
 
     if(isSelected){
         return(
-            <View style={{ flex:1, alignItems: "center" }} >
+            <View style={{ flex:1, alignItems: "center", backgroundColor: COLORS.white }} >
                 <View style={{ flexDirection: 'row', position: "absolute", top: 0 }} >
                     <View style={{ flex: 1, backgroundColor: COLORS.white }} ></View>
                     <View style={{ flex: 1, backgroundColor: COLORS.white }} ></View>
@@ -29,11 +29,11 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress  }) => {
                         justifyContent: "center",
                         alignItems: "center",
                         flex:1,
-                        borderRadius: 25,
+                        borderRadius: 50,
                         height: 50,
                         width: 50,
                         backgroundColor: COLORS.primary,
-                        boxShadow: "0px 9px 15px rgba(245, 71, 72, .35)",
+                        boxShadow: "0px 9px 10px rgba(245, 71, 72, .35)",
                     }}  
                     activeOpacity={1}
                     onPress={onPress}
@@ -47,7 +47,9 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress  }) => {
             <TouchableOpacity 
                 style={{
                     flex:1,
-                    height: 45
+                    height: 45,
+                    top: -5,
+                    backgroundColor: COLORS.white
                 }}  
                 activeOpacity={1}
                 onPress={onPress}
@@ -67,7 +69,7 @@ const Tabs = () =>{
                 showLabel: false,
             }}
             screenOptions={{
-                 tabBarStyle: {backgroundColor: "transparent", borderTopWidth: 0 },
+                 tabBarStyle: {backgroundColor: COLORS.white , borderTopWidth: 0 },
             }}
         >
             <Tab.Screen
@@ -100,7 +102,7 @@ const Tabs = () =>{
                     headerShown: false,
                     tabBarIcon: ({focused})=>(
                         <Image 
-                            source={icons.heart}
+                            source={icons.favorite}
                             resizeMode="contain"
                             style={{
                                 width: 25,
@@ -123,7 +125,7 @@ const Tabs = () =>{
                     headerShown: false,
                     tabBarIcon: ({focused})=>(
                         <Image 
-                            source={icons.notif}
+                            source={icons.notifications}
                             resizeMode="contain"
                             style={{
                                 width: 25,
@@ -146,7 +148,7 @@ const Tabs = () =>{
                     headerShown: false,
                     tabBarIcon: ({focused})=>(
                         <Image 
-                            source={icons.basket}
+                            source={icons.cart}
                             resizeMode="contain"
                             style={{
                                 width: 25,

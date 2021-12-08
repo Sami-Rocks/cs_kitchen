@@ -8,8 +8,9 @@ const Stack = createNativeStackNavigator();
 
 const App = () =>{
   return(
-    <NavigationContainer>
+    <NavigationContainer >
       <Stack.Navigator
+      
         screenOptions={{
           headerShown: false,
 
